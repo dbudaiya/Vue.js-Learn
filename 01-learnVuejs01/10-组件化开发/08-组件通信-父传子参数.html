@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <parentcpn></parentcpn>
+</div>
+
+<script src="../js/vue.min.js"></script>
+<template id="parenttmp">
+  <div>
+    <p>父组件列表</p>
+    <childcpn :cname="parentName"></childcpn>
+  </div>
+</template>
+
+<template id="childtmp">
+  <div>
+    <ul>
+      <li v-for="item in cname">{{item}}</li>
+    </ul>
+  </div>
+</template>
+<script>
+
+	const app = new Vue({
+		el: '#app',
+		data: {
+			message: '你好啊'
+		},
+		components: {
+			"parentcpn": {
+				template: '#parenttmp',
+				data() {
+					return {
+						parentName:['a','b','c','d']
+          }
+				},
+        components: {
+          "childcpn":{
+	          template:'#childtmp',
+            props:["cname"]
+          }
+        }
+			}
+		}
+	})
+</script>
+</body>
+</html>

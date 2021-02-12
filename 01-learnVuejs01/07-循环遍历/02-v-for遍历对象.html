@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+  <h2>遍历对象</h2>
+  <ul>
+    <li v-for="(item,index,err) in names ">{{item.name}}--{{index}}</li>
+  </ul>
+
+</div>
+
+<script src="../js/vue.min.js"></script>
+<script>
+	const app = new Vue({
+		el: '#app',
+		data: {
+			names:[
+				{name:'name1',age:1},
+				{name:'name2',age:2},
+				{name:'name3',age:3}
+
+      ]
+		}
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn>
+    <span slot="center">啥?你说是中间就是中间?</span>
+  </cpn>
+
+</div>
+
+<template id="tmp">
+  <div>
+  <h2>我是标题</h2>
+    <slot name="left"><span>右边</span></slot>
+    <slot name="center"><span>中间</span></slot>
+    <slot name="right"><span>右边</span></slot>
+  </div>
+</template>
+
+<script src="../js/vue.min.js"></script>
+<script>
+	const app = new Vue({
+		el: '#app',
+		data: {
+			message: '你好啊'
+		},
+    components:{
+			"cpn":{
+				template:'#tmp'
+      }
+    }
+	})
+</script>
+</body>
+</html>

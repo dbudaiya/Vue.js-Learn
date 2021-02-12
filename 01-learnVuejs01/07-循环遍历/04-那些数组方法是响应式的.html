@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <script src="../js/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="item in names" :key="item">{{item}}</li>
+  </ul>
+
+  <button @click="btnclick">点击</button>
+</div>
+
+<script>
+	const app = new Vue({
+		el: '#app',
+		data: {
+			names: ['dushenyan', 'codewhy', "Kobe", 'james']
+		},
+		methods: {
+			btnclick() {
+				//1.push方法
+				// this.names.push("小布袋")
+				// this.names.push("xaiobudai",'小布袋','不带小')
+
+
+				//2.pop方法：删除数组中最后的一个元素
+				// this.names.pop()
+
+				//3.shift():删除数组中的第一个元素
+				// this.names.shift()
+
+				//4.unshift():添加元素在数组的最前面
+				// this.names.unshift("相爱哦不对")
+				// this.names.unshift("1",'2','3')
+
+				//5.splice作用：删除/插入/替换元素
+        // this.names.splice(1,3)
+        this.names.splice(2,0,'aaaa')
+				// this.names.splice(1,3,"pppp")
+				//6.reverse()
+				// this.names.reverse()
+
+				//7.sort()
+				// this.names.sort()
+
+
+				//通过索引值修改数组中的元素
+				// this.names[0] = "bbbb"
+				// this.names.splice(0,1,"bbbb")
+
+			}
+		}
+	})
+</script>
+</body>
+</html>

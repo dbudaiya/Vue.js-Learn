@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <p> {{message}}</p>
+  <p>{{message}},李银河!!</p>
+
+  <p>{{firstName +' '+ lastName}}</p>
+
+  <p>{{firstName}}
+    {{lastName}}</p>
+  <!--  计算属性-->
+  <p>{{fullName}}</p>
+
+  <p>{{counter *2}}</p>
+</div>
+
+<script src="../js/vue.min.js"></script>
+<script>
+	const app = new Vue({
+		el: '#app',
+		data: {
+			message: '你好啊',
+			firstName: 'Kobe',
+			lastName: 'Brance',
+			counter: 100
+		},
+		computed: {
+			fullName: function () {
+				return this.firstName + ' ' + this.lastName
+			}
+		}
+	})
+</script>
+</body>
+</html>

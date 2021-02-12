@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <h1>{{message }}</h1>
+  <p>{{name}}</p>
+</div>
+
+<script>
+	const app = new Vue({
+		el: '#app',//用于挂载的元素
+		data: {//定义数据,可以放入多个对象
+			message: 'Hello Vue!!!',
+			name: '布袋树'
+		}
+	})
+</script>
+</body>
+</html>

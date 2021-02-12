@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<cpn></cpn>
+</div>
+
+<script src="../js/vue.min.js"></script>
+<script>
+	//1.创建组件构造器
+	//const cpnC = Vue.extend({})
+
+	Vue.component('my-cpn', {
+		template: `
+	  <p>budaishu</p>
+	`
+	})
+	const app = new Vue({
+		el: '#app',
+		data: {
+			message: '你好啊'
+		},
+		components: {
+			'cpn': {
+				template: `
+				<div>
+				<p>budaishu</p>
+</div>
+				`
+			}
+
+		}
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!--父模板-->
+<div id="app">
+<cpn @item-click="cpnclick"></cpn>
+
+</div>
+
+<template id="tmp">
+  <div>
+    <ul>
+      <button v-for="(item,index) in categories" @click="btnClick(item,index)">{{item.name}}</button>
+    </ul>
+<!--    <button @click="btnClick">点击按钮</button>-->
+  </div>
+</template>
+<script src="../js/vue.min.js"></script>
+<script>
+	const app = new Vue({
+		el: '#app',
+		data: {
+			message: '你好啊'
+		},
+    methods:{
+			cpnclick(item1,item2){
+				console.log("子传父点击事件",item1,item2);
+			}
+    },
+    components:{
+			"cpn":{
+				template:'#tmp',
+        data(){
+					return{
+						categories:[
+							{id: 'aaa', name: '热门推荐'},
+							{id: 'bbb', name: '手机数码'},
+							{id: 'ccc', name: '家用家电'},
+							{id: 'ddd', name: '电脑办公'},
+            ]
+          }
+        },
+        methods:{
+					btnClick(item,index){
+						// console.log("我被点击了",item);
+            this.$emit("item-click",item,"第"+index+"个被点击")
+					}
+        }
+      }
+    }
+	})
+</script>
+</body>
+</html>

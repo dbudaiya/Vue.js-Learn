@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+  <cpn></cpn>
+  <cpn></cpn>
+  <cpn></cpn>
+
+</div>
+<template id="tmp">
+  <div>
+    <p>{{message}}</p>
+    <button @click="message++">加一</button>
+    <button @click="message--">减一</button>
+  </div>
+</template>
+
+<script src="../js/vue.min.js"></script>
+<script>
+
+	// const obj={
+	//   message:0
+	// }
+
+	const cpn = Vue.extend({
+		template: "#tmp",
+		data() {
+			return {
+				message: 0
+			}
+		}
+	})
+	const app = new Vue({
+		el: '#app',
+		data: {
+			message: '你好啊'
+		},
+		components: {
+			cpn
+		}
+	})
+	// var obj = {
+	// 	name: '百度爱书',
+	// 	age: '111'
+	// }
+	//
+	// function Person() {
+	// 	return obj
+	// }
+	//
+	// var per1 = new Person();
+	// var per2 = new Person();
+
+</script>
+
+</body>
+</html>

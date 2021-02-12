@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app" v-clock>
+  <h2 v-text=""></h2>
+  <a v-bind:href="isUrl" v-once :style="styles">{{message}}</a>
+</div>
+
+<script src="../js/vue.min.js"></script>
+<script>
+	const app = new Vue({
+		el: '#app',
+		data: {
+			message: '百度一下',
+      isUrl:'http://www.baidu.com',
+      styles:{
+				color:'red',
+        fontSize:'20px'
+      }
+		}
+	})
+</script>
+</body>
+</html>

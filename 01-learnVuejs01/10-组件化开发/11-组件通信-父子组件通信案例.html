@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <p>{{number1 }}</p>
+  <cpn :cnumber1="number1" :cnumber2="number2"></cpn>
+</div>
+
+<template id="tmp">
+  <div>
+    <div>{{cnumber1}}</div>
+    <input type="text" v-model="cnumber1">
+    <div>{{cnumber2}}</div>
+    <input type="text" v-model="cnumber2">
+  </div>
+  <script src="../js/vue.min.js"></script>
+</template>
+<script>
+	const app = new Vue({
+		el: '#app',
+		data: {
+			number1: 1,
+			number2: 2
+		},
+		components: {
+			"cpn": {
+				template: '#tmp',
+				props: {
+					cnumber1: Number,
+					cnumber2: Number
+
+				}
+			}
+		}
+	})
+</script>
+</body>
+</html>

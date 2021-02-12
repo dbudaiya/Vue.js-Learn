@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn></cpn>
+</div>
+<template id="tmp">
+  <div>
+    <h2>第一个组件</h2>
+    <button @click="btnclick">点击</button>
+    <mycpn></mycpn>
+  </div>
+</template>
+
+<template id="tmps">
+  <div>
+    <h2>第二个组件</h2>
+    <button @click="btnclicks">点击</button>
+    <button @click="clicks()">直接访问root信息</button>
+  </div>
+</template>
+<script src="../js/vue.min.js"></script>
+<script>
+	const app = new Vue({
+		el: '#app',
+		data: {
+			message: '我是root组件的message'
+		},
+    components:{
+			"cpn":{
+				template:'#tmp',
+        data(){
+					return{
+						message:'我是第一个组件的message'
+          }
+        },
+				methods:{
+					btnclick(){
+						console.log(this.$parent.message)
+					}
+				},
+        components:{
+					"mycpn":{
+						template:'#tmps',
+            data(){
+							return{
+							  message:'我是第二个组件'
+              }
+            },
+            methods: {
+							btnclicks() {
+								console.log(this.$parent.message)
+							},
+	            clicks(){
+		            console.log(this.$root.message)
+	            }
+            }
+          }
+        }
+      },
+
+    }
+	})
+</script>
+</body>
+</html>
