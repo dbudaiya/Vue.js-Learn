@@ -8,7 +8,7 @@
 
     <!-- <button @click="btn1">首页</button>
     <button @click="btn2">关于</button> -->
-
+  
     <router-view></router-view>
   </div>
 </template>
