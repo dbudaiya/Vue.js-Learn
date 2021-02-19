@@ -2,6 +2,7 @@
 node_modules
 /dist
 下载代码
+downloadThefile
 
 # local env files
 .env.local
